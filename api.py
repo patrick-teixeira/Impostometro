@@ -76,9 +76,7 @@ def get_dados_por_mes_ano():
     except Exception as e:
         return jsonify({'erro': str(e)}), 500
 
-@app.route("/helloworld")
-def helloWorld():
-    return "Hello world"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
