@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Documentação da API</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">
+  <style>
+    body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script>
+    
+    const spec = {
+      openapi: "3.0.0",
+      info: {
+        title: "API de Arrecadação",
+        version: "1.0.0",
+        description: "API para consultar dados de arrecadação por ano, UF e mês."
+      },
+      servers: [
+        {
+          url: "https://www.bigdataempython.xyz/api",
+        }
+      ],
+      paths: {
+        "/dados/": {
+          post: {
+            summary: "Filtrar dados por ano e UF",
+            requestBody: {
+              required: true,
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                    properties: {
+                      ano: { type: "integer", example: 2020 },
+                      uf: { type: "string", example: "SP" }
+                    }
+                  }
+                }
+              }
+            },
+            responses: {
+              "200": {
+                description: "Lista de dados filtrados"
+              }
+            }
+          }
+        },
+        "/dados/ano/{ano}": {
+          get: {
+            summary: "Filtrar dados por ano",
+            parameters: [
+              {
+                name: "ano",
+                in: "path",
+                required: true,
+                schema: { type: "integer" }
+              }
+            ],
+            responses: {
+              "200": {
+                description: "Lista de dados filtrados pelo ano"
+              }
+            }
+          }
+        },
+        "/dados/por_mes_ano": {
+          post: {
+            summary: "Filtrar dados por mês e ano",
+            requestBody: {
+              required: true,
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                    properties: {
+                      ano: { type: "integer", example: 2022 },
+                      mes: { type: "string", example: "Janeiro" }
+                    }
+                  }
+                }
+              }
+            },
+            responses: {
+              "200": {
+                description: "Lista de dados filtrados por mês e ano"
+              }
+            }
+          }
+        },
+        "/helloworld": {
+          get: {
+            summary: "Hello World",
+            responses: {
+              "200": {
+                description: "Mensagem de Hello World"
+              }
+            }
+          }
+        }
+      }
+    };
+
+    SwaggerUIBundle({
+      spec: spec,
+      dom_id: "#swagger-ui",
+    });
+      
+ 
+  </script>
+</body>
+</html>
