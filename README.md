@@ -1,5 +1,8 @@
 Um projeto desenvolvido para análise e visualização dos impostos pagos por cada estado do Brasil
 
+## 🌐 Site Oficial
+Acesse o projeto em: **[https://www.bigdataempython.xyz/](https://www.bigdataempython.xyz/)**
+
 ## 🎯 Funcionalidades
 
 - 📊 Visualização de impostos por estado
@@ -40,5 +43,4 @@ python api.py
 Para mais informações sobre os endpoints da API e como utilizá-los, consulte a documentação completa em:  
 **[https://www.bigdataempython.xyz/docs](https://www.bigdataempython.xyz/docs)**
 
----
-⭐ Se este projeto te ajudou, deixe uma estrela!
+
